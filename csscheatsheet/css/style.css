@@ -1,0 +1,239 @@
+
+/* global setting
+*{                                  reset margin & padding to 0
+    margin: 0;                      
+    padding: 0;                     
+}
+*/
+
+body{
+    background-color: #f4f4f4;    /* background page color */
+    color: #555555;               /* Word color */
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    /* Same as above */
+    font: normal 16px Arial, Helvetica, sans-serif;
+
+    line-height: 1.6em;             /* line spaces */
+    margin: 0em;                    /* margin left & right 0 */
+}
+
+a{                                  /* set global style to all links */            
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover{                            /* state of link above, turn red when mouse hover it */
+    color: red;
+}
+
+a:active{                           /* turn green when mouse click */
+    color: green;
+}
+
+/*
+a:visited{                          /* after visited, will turn black
+    color: black;
+}
+*/
+/* end of global settings */
+
+/* class */
+.container{                         /* set container style */
+    width: 80%;                     /* suggested container always using % instead of fix px, with % the display will adjust accordingly based on the browser's width */
+    margin: auto;                   /* arrange to the center */
+}
+
+.button{                            /* styling button */
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+.button:hover{
+    background-color: red;        /* red background */
+    color: #fff;                  /* white character */
+}
+
+.clr{
+    clear:both;
+}
+
+.box-1{
+    background-color: #333;       /* box background */
+    color: #fff;                  /* Word color */
+/*
+    border-right:5px red solid;
+    border-left:5px red solid;
+    border-top:5px red solid;
+    border-bottom:5px red solid;
+*/
+    border-width: 3px;              /* arrange border */
+    border-bottom-width: 40px;      /* useless cause will be overwrote by border: 5px */
+    border-top-style: dotted;
+
+    border: 5px red solid;        /* same as above */
+    padding: 20px;                  /* inside border */
+    margin: 20px 0;                 /* outside border */
+}
+
+.box-1 h1{                          /* specific only for h1 in box-1 */
+    font-family: Tahoma;
+    font-weight: 800;               /* Word thickness */
+    /*
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: uppercase;      /* all uppercase
+    letter-spacing: 0.2em;          /* spacing between character
+    word-spacing: 1em;              /* spacing between word
+    */
+}
+
+.box-2{
+    border: 3px dotted #ccc;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.categories{
+    border: 1px #ccc solid;
+    padding: 10px;
+    border-radius: 15px;            /* rounded corner border */
+}
+
+.categories h2{
+    text-align: center;
+}
+
+.categories ul{
+    padding: 0px;
+    padding-left: 20px;
+    list-style: square;                   /* square will be overwrote by none */
+    list-style: none;                     /* none will be overwrote by checkmark image */
+}
+
+.categories li{
+    padding-bottom: 6px;
+    border-bottom: dotted 1px #333;     /* dotted line below each categories */
+    list-style-image: url(../images/checkmark.jpg);
+}
+
+.my-form{
+    padding: 20px;
+}
+
+.my-form .form-group{
+    padding-bottom: 15px;
+}
+
+.my-form label{                         /* field will be under the label instead of same line, similar as <br> */
+    display: block;
+}
+
+/* styling to input & textarea
+without type="text", every input will get effected and get width 100% including Submit button, with .my-form textarea the message field get width 100% too */ 
+.my-form input[type="text"], .my-form textarea{
+    padding: 8px;
+    width: 100%;
+}
+/* end of styling to input & textarea */
+
+.block{
+    float: left;
+    width: 33.3%;                       /* create 3 blocks */
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;             /* it takes padding & border and applied it to the width - flexbox takes care of this and do a lot more */
+}
+
+/* positioning is useful especially for gaming */
+.p-box{
+    width: 800px;
+    height: 500px;
+    border: 1px solid #000;
+    margin-top: 30px;
+    position: relative;
+    background-image: url(../images/Ocean.jpg);
+    background-position: 100px 200px;       /* image will start 100px from top and 200px from left and will repeat*/
+    background-repeat: no-repeat;           /* remove repeat action */
+    background-position: center center;     /* positioning the images to center vertically & horizontally */
+}
+
+.p-box h1{
+    color: magenta;
+    position: absolute;                 /* set absolute position 100px from very top of the page, we want "Hello" 100px from top of p-box, so need to set position relative in p-box */
+    top: 100px;
+}
+
+.p-box h2{
+    color: yellow;
+    position: absolute;
+    bottom: 40px;
+    right: 100px;
+}
+
+.fix-me-1{                                    /* will stay 100px from top page, this is good for menu bar */
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    max-block-size: 5px;
+    background-color: cyan;
+    text-align: center;
+    color: mediumblue;
+}
+
+.fix-me-2{                                    /* will stay 100px from top page, this is good for menu bar */
+    position: fixed;
+    top: 130px;
+    left: 20px;
+    max-block-size: 5px;
+    background-color: cyan;
+    text-align: center;
+    color: mediumblue;
+}
+/* end of positioning */
+
+/* sudo classes */
+.my-list li:first-child{                        /* the 1st line will show red */
+    background: red;
+}
+.my-list li:last-child{                         /* the last line will show blue */
+    background: blue;
+}
+.my-list li:nth-child(7){                       /* the nth line (in this case line 7) will show yellow */
+    background: yellow;
+}
+.my-list li:nth-child(even){                    /* the even lines will show grey */
+    background: grey;
+}
+/* end of sudo classes */
+
+.copyright{                                     /* "." is for class */
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+}
+/* end of class */
+
+/* alignment & floating */
+#main-block{                                    /* "#" is for id */
+    float: left;
+    width: 70%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+#sidebar{
+    float: right;
+    width: 30%;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    box-sizing: border-box;
+}
+/* end of alignment & floating */
